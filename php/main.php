@@ -27,9 +27,7 @@
                 die( print_r( sqlsrv_errors(), true));
             }
 
-            while($row = sqlsrv_fetch_rows($stmt)){
-                echo "$row";
-            }
+            echo "$stmt"
             
         
         ?>
