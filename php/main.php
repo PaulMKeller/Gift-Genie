@@ -25,9 +25,30 @@
 
             if( $stmt === false ) {
                 die( print_r( sqlsrv_errors(), true));
-            }
+            } else {
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Tree ID</th>";
+                echo "<th>Question</th>";
+                echo "<th>Answer</th>";
+                echo "</tr>";
 
-            echo "$stmt"
+                while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC))
+                {
+                    $id = $row["TreeID"];
+                    $question = $row["QuestionText"];
+                    $answer = $row["AnswerText"];
+
+                    echo "<tr>";
+                    echo "<td>$id</td>";
+                    echo "<td>$question</td>";
+                    echo "<td>$answer</td>";
+                    echo "</tr>";
+
+                }
+
+                echo "</table>";
+            }
             
         
         ?>
